@@ -11,7 +11,9 @@ import axios from 'axios'
 
 
 const MovieUpdateForm = ({movieList, setMovieList}) =>{
-const [formValues, setFormValues] = useState({})    
+const [formValues, setFormValues] = useState({
+    
+})    
 const {id} = useParams();
 const {push} = useHistory();  
 
@@ -35,10 +37,10 @@ useEffect(()=>{
         e.preventDefault();
         axios.put(`http://localhost:5000/api/movies/${id}`, formValues)
         .then((res)=>{
-            console.log("handleSubmit", res.data)
-            console.log("movieList - handleSubmit", movieList)
+            
             setMovieList([...movieList, res.data])
-            push('/')
+        
+            push(`/movies/${id}`)
 
         })
         .catch((err)=>{

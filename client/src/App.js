@@ -25,6 +25,8 @@ const App = () => {
     getMovieList();
   }, []);
 
+
+  
   return (
     <>
       <SavedList list={savedList} />
@@ -35,7 +37,7 @@ const App = () => {
 
           //Route from movie update form. 
           <Route path="/update-movie/:id"  render={(props)=>{
-            return (<MovieUpdateForm {...props} setMovies={setMovieList}/>)
+            return (<MovieUpdateForm {...props} movieList={movieList} setMovieList={setMovieList}/>)
           }}/>
 
           <Route exact path="/">
